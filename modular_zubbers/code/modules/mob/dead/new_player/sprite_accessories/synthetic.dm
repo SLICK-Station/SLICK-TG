@@ -170,6 +170,11 @@
 	name = "Cybernetic Horse (Inverted)"
 	icon_state = "synthhorseinv"
 
+/datum/sprite_accessory/taur/synthliz/bunny
+	name = "Cybernetic Bunny"
+	icon_state = "bigbunny"
+	icon = 'modular_zubbers/icons/customization/taur.dmi'
+
 /datum/sprite_accessory/taur/synthliz/wolf
 	name = "Cybernetic Wolf"
 	icon_state = "synthwolf"
@@ -183,6 +188,11 @@
 	icon_state = "synthnaga"
 	taur_mode = STYLE_TAUR_SNAKE
 	organ_type = /obj/item/organ/taur_body/serpentine/synth
+
+/datum/sprite_accessory/taur/synthliz/synthnagafat
+	name = "Cybernetic Naga, Fat"
+	icon_state = "nagafat"
+	icon = 'modular_zubbers/master_files/icons/mob/sprite_accessory/taur.dmi'
 
 /datum/sprite_accessory/taur/synthliz/biglegs
 	name = "Synthetic Big Legs"
@@ -201,3 +211,13 @@
 /datum/sprite_accessory/taur/synthliz/biglegs/stanced/bird
 	name = "Synthetic Big Legs, Stanced Bird"
 	icon_state = "biglegs_bird_stanced"
+
+/datum/sprite_accessory/taur/synthliz/biglegs/peg
+	name = "Synthetic Big Legs, Pegs"
+	icon_state = "biglegs_peg"
+	icon = 'modular_zubbers/icons/customization/taur.dmi'
+
+/datum/sprite_accessory/taur/synthliz/biglegs/stanced/peg
+	name = "Synthetic Big Legs, Stanced Pegs"
+	icon_state = "biglegs_peg_stanced"
+	icon = 'modular_zubbers/icons/customization/taur.dmi'
