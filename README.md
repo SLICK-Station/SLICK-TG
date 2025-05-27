@@ -10,7 +10,7 @@
 | Website                   | TBD |
 | Code                      | [https://github.com/Bubberstation/Bubberstation](https://github.com/Bubberstation/Bubberstation) |
 | Wiki                      | [https://tgstation13.org/wiki/Main_Page](https://tgstation13.org/wiki/Main_Page) |
-| Bubberstation Discord     | TBD |
+| SLICK Station Discord     | TBD |
 | Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9) |
 
 This is SLICK Station's fork of TG. Originally forked from Bubberstation.
