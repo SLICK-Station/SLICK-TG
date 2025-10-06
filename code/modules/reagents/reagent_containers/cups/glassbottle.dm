@@ -25,7 +25,7 @@
 	age_restricted = TRUE // wrryy can't set an init value to see if drink_type contains ALCOHOL so here we go
 	///Directly relates to the 'knockdown' duration. Lowered by armor (i.e. helmets)
 	var/bottle_knockdown_duration = BOTTLE_KNOCKDOWN_DEFAULT_DURATION
-	tool_behaviour = TOOL_ROLLINGPIN // Used to knock out the Chef.
+	tool_behaviour = TOOL_ROLLINGPIN // Glass bottles can be used as rolling pins when empty
 	toolspeed = 1.3 //it's a little awkward to use, but it's a cylinder alright.
 	/// A contained piece of paper, a photo, or space cash, that we can use as a message or gift to future spessmen.
 	var/obj/item/message_in_a_bottle
@@ -51,6 +51,13 @@
 		return CONTEXTUAL_SCREENTIP_SET
 	return NONE
 
+/obj/item/reagent_containers/cup/glass/bottle/on_reagent_change(datum/reagents/holder, ...)
+	. = ..()
+	if(!reagents?.total_volume)
+		tool_behaviour = TOOL_ROLLINGPIN // Glass bottles can be used as rolling pins when empty
+	else
+		tool_behaviour = null
+
 /obj/item/reagent_containers/cup/glass/bottle/Exited(atom/movable/gone, atom/newloc)
 	if(gone == message_in_a_bottle)
 		message_in_a_bottle = null
@@ -58,12 +65,9 @@
 			update_icon(UPDATE_OVERLAYS)
 	return ..()
 
-/obj/item/reagent_containers/cup/glass/bottle/CheckParts(list/parts_list)
+/obj/item/reagent_containers/cup/glass/bottle/used_in_craft(atom/result, datum/crafting_recipe/current_recipe)
 	. = ..()
-	var/obj/item/reagent_containers/cup/glass/bottle/bottle = locate() in contents
-	if(bottle.message_in_a_bottle)
-		message_in_a_bottle = bottle.message_in_a_bottle
-		bottle.message_in_a_bottle.forceMove(src)
+	message_in_a_bottle?.forceMove(drop_location())
 
 /obj/item/reagent_containers/cup/glass/bottle/examine(mob/user)
 	. = ..()
@@ -916,16 +920,16 @@
 		/datum/reagent/toxin/spore_burning,
 	)
 
-/obj/item/reagent_containers/cup/glass/bottle/molotov/CheckParts(list/parts_list)
-	. = ..()
-	var/obj/item/reagent_containers/cup/glass/bottle/bottle = locate() in contents
+/obj/item/reagent_containers/cup/glass/bottle/molotov/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
+	var/obj/item/reagent_containers/cup/glass/bottle/bottle = locate() in components
 	if(!bottle)
-		return
+		return ..()
 	icon_state = bottle.icon_state
-	bottle.reagents.copy_to(src, 100)
+	bottle.reagents.trans_to(src, 100, copy_only = TRUE)
 	if(istype(bottle, /obj/item/reagent_containers/cup/glass/bottle/juice))
 		desc += " You're not sure if making this out of a carton was the brightest idea."
 		isGlass = FALSE
+	return ..()
 
 /obj/item/reagent_containers/cup/glass/bottle/molotov/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum, do_splash = FALSE)
 	..(hit_atom, throwingdatum, do_splash = FALSE)

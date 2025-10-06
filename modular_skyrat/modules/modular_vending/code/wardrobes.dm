@@ -131,7 +131,7 @@
 		/obj/item/clothing/under/rank/medical/chemist/skyrat/formal/skirt = 2,
 		/obj/item/clothing/under/rank/medical/chemist/skyrat/formal = 2,
 		/obj/item/clothing/under/rank/medical/chemist/skyrat/formal/skirt = 2,
-		/obj/item/clothing/suit/toggle/labcoat/skyrat/pharmacist = 2,
+		/obj/item/clothing/suit/toggle/labcoat/chemist/skyrat/pharmacist = 2,
 		/obj/item/clothing/head/beret/medical/chemist = 2,
 		/obj/item/storage/backpack/messenger/chem = 2,
 	)
@@ -173,8 +173,8 @@
 /obj/machinery/vending/proc/remove_products(list/paths_to_remove)
 	if(!length(paths_to_remove))
 		return
-	for(var/typepath as anything in products)
-		for(var/to_remove as anything in paths_to_remove)
+	for(var/typepath in products)
+		for(var/to_remove in paths_to_remove)
 			if(ispath(typepath, to_remove))
 				products.Remove(typepath)
 
