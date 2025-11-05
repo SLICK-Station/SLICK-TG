@@ -13,7 +13,7 @@
 | SLICK Station Discord     | TBD |
 | Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9) |
 
-This is SLICK Station's fork of TG. Originally forked from Bubberstation.
+This is SLICK Station's fork of TG. Originally forked from Bubberstation. [Last commit: 7ebdda58 - 11/5/2025](https://github.com/Bubberstation/Bubberstation/commit/7ebdda585307ac1717685b8a43bbbafaf2ff3ffe)
 
 **Please note that this repository contains sexually explicit content and is not suitable for those under the age of 18.**
 
